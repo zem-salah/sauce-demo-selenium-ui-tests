@@ -2,11 +2,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from components.base_component import BaseComponent
 
-class InventoryContainer:
+
+class InventoryContainer(BaseComponent):
 
     def __init__(self, driver):
-        self._driver = driver
+        super().__init__(driver)
 
     def is_visible(self):
         return len(WebDriverWait(self._driver, 10).until(

@@ -14,14 +14,15 @@ class Login(BasePage):
     login_btn = (By.ID, "login-button")
 
     def login(self, username, password):
-        self.enter_text(self.username_txt, username)
-        self.enter_text(self.password_txt, password)
-        self.click_on_button(self.login_btn)
+        self.base_component.enter_text(self.username_txt, username)
+        self.base_component.enter_text(self.password_txt, password)
+        self.base_component.click_on_button(self.login_btn)
         return ProductsPage(self.driver)
 
     def page_is_visible(self):
         return all((
-            self.find_element(self.username_txt).is_displayed(),
-            self.find_element(self.password_txt).is_displayed(),
-            self.button_to_be_clickable(self.login_btn).is_displayed())
+            self.base_component.find_element(self.username_txt).is_displayed(),
+            self.base_component.find_element(self.password_txt).is_displayed(),
+            self.base_component.button_to_be_clickable(
+                self.login_btn).is_displayed())
         )

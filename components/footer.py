@@ -1,7 +1,10 @@
-class Footer:
+from components.base_component import BaseComponent
+
+
+class Footer(BaseComponent):
 
     def __init__(self, driver):
-        self._driver = driver
+        super().__init__(driver)
 
     def is_visible(self):
         return True
