@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 
 from page_object.base_page import BasePage
-from page_object.products_page import ProductsPage
 
 
 class Login(BasePage):
@@ -17,7 +16,8 @@ class Login(BasePage):
         self.base_component.enter_text(self.username_txt, username)
         self.base_component.enter_text(self.password_txt, password)
         self.base_component.click_on_button(self.login_btn)
-        return ProductsPage(self.driver)
+        from page_object.page_factory import PageFactory
+        return PageFactory(self.driver)("products")
 
     def page_is_visible(self):
         return all((

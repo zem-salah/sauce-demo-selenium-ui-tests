@@ -2,13 +2,13 @@ from behave import given, when
 from robber import expect
 
 from data.user import UserData
-from page_object.login import Login
+from page_object.page_factory import PageFactory
 
 
 @given('sauce demo login form is visible')
 def step_impl(context):
     context.driver.get("https://www.saucedemo.com/")
-    context.page = Login(context.driver)
+    context.page = PageFactory(context.driver)("login")
     expect(context.page.page_is_visible()).to.be.true()
 
 
