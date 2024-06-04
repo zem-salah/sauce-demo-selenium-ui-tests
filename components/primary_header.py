@@ -7,6 +7,8 @@ from components.base_component import BaseComponent
 
 class PrimaryHeader(BaseComponent):
 
+    shopping_cart_link = (By.XPATH, '//*[@data-test="shopping-cart-link"]')
+
     def __init__(self, driver):
         super().__init__(driver)
 
@@ -16,3 +18,7 @@ class PrimaryHeader(BaseComponent):
                 (By.XPATH, '//div[@data-test="primary-header"]'
                            '//a[@data-test="shopping-cart-link"]'))
         ).is_displayed()
+
+    def get_number_products_in_cart(self):
+        return self.find_element(self.shopping_cart_link).find_element(
+            By.XPATH, '//*[@data-test="shopping-cart-badge"]').text
