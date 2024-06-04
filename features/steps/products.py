@@ -12,9 +12,15 @@ def step_impl(context):
     context.page.page_is_visible()
 
 
-@then('the add to cart button turns into remove button')
-def step_impl(context):
-    pass
+@then('the add to cart button for product "{product_pretty_name}" '
+      'turns into remove button')
+def step_impl(context, product_pretty_name):
+    try:
+        expect(context.page.product_tiles(product_pretty_name)
+               .is_remove_button_displayed()).to.be.true()
+    except BadExpectation as e:
+        e.message = "Remove button is not displyed"
+        raise e
 
 
 @then('the cart should contain "{expected_number_products_in_cart}" product')

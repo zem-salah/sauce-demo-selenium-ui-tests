@@ -14,4 +14,4 @@ Feature: Add a product to cart as a standard user
 
     When he adds "Sauce Labs Backpack" product to cart
     Then the cart should contain "1" product
-    And the add to cart button turns into remove button
+    And the add to cart button for product "Sauce Labs Backpack" turns into remove button
