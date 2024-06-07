@@ -7,11 +7,6 @@ def step_impl(context, product_pretty_name):
     context.page.product_tiles(product_pretty_name).add_to_cart()
 
 
-@then('he should be on sauce lab products page')
-def step_impl(context):
-    context.page.page_is_visible()
-
-
 @then('the add to cart button for product "{product_pretty_name}" '
       'turns into remove button')
 def step_impl(context, product_pretty_name):

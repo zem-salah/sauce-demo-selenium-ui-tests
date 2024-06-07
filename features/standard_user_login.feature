@@ -6,4 +6,4 @@ Feature: Login to sauce demo web site as standard user
   Scenario: login as standard user
     Given sauce demo login form is visible
     When "standard user" logs in
-    Then he should be on sauce lab products page
+    Then he should be on "products" page
