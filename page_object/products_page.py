@@ -1,14 +1,13 @@
 from page_object.base_page import BasePage
+from page_object.logged_in_base_page import LoggedInBasePage
 
 
-class ProductsPage(BasePage):
+class ProductsPage(LoggedInBasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
         self.footer = self.component_factory("footer")
         self._products_tiles = {}
-        self.primary_header = self.component_factory("primary header")
-        self.secondary_header = self.component_factory("secondary header")
 
     def page_is_visible(self):
         product_tile = self.component_factory(
