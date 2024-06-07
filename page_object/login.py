@@ -15,7 +15,7 @@ class Login(BasePage):
     def login(self, username, password):
         self.base_component.enter_text(self.username_txt, username)
         self.base_component.enter_text(self.password_txt, password)
-        self.base_component.click_on_button(self.login_btn)
+        self.base_component.click(self.login_btn)
         from page_object.page_factory import PageFactory
         return PageFactory(self.driver)("products")
 

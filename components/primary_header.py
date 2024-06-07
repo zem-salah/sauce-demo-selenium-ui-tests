@@ -22,3 +22,6 @@ class PrimaryHeader(BaseComponent):
     def get_number_products_in_cart(self):
         return self.find_element(self.shopping_cart_link).find_element(
             By.XPATH, '//*[@data-test="shopping-cart-badge"]').text
+
+    def click_on_cart(self):
+        self.click(self.shopping_cart_link)

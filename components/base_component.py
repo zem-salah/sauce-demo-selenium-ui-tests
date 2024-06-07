@@ -12,7 +12,7 @@ class BaseComponent:
         element.clear()
         element.send_keys(text)
 
-    def click_on_button(self, locator):
+    def click(self, locator):
         element = self.find_element(locator)
         element.click()
 

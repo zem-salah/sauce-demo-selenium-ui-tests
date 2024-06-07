@@ -29,7 +29,7 @@ class ProductTile(BaseComponent):
         pass
 
     def add_to_cart(self):
-        self.click_on_button(self.add_to_cart_btn)
+        self.click(self.add_to_cart_btn)
 
     def is_remove_button_displayed(self):
         return self.find_element(self.remove_from_cart_btn).is_displayed()
