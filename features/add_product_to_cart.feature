@@ -10,8 +10,12 @@ Feature: Add a product to cart as a standard user
     # UI then maybe add it later
     Given sauce demo login form is visible
     When "standard user" logs in
-    Then he should be on sauce lab products page
+    Then he should be on "products" page
 
     When he adds "Sauce Labs Backpack" product to cart
     Then the cart should contain "1" product
     And the add to cart button for product "Sauce Labs Backpack" turns into remove button
+
+    When he goes to the cart to checkout
+    Then he should be on "your cart" page
+    And "Sauce Labs Backpack" product is in the cart
