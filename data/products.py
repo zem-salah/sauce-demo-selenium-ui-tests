@@ -12,3 +12,9 @@ class ProductsData:
             raise KeyError(
                 f'Product {product_pretty_name} does not exist.'
             )
+
+
+class Product:
+
+    def __init__(self, product_pretty_name):
+        self.name = product_pretty_name
