@@ -1,8 +1,13 @@
-from page_object.base_page import BasePage
+from data.products import Product
 from page_object.logged_in_base_page import LoggedInBasePage
 
 
 class ProductsPage(LoggedInBasePage):
+
+    """
+    Main page after login. https://www.saucedemo.com/inventory.html
+    It is composed of product tiles.
+    """
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -18,8 +23,8 @@ class ProductsPage(LoggedInBasePage):
                     self.footer.is_visible())
                    )
 
-    def product_tiles(self, product_pretty_name):
-        if product_pretty_name not in self._products_tiles:
-            self._products_tiles[product_pretty_name] = self\
-                .component_factory("product tile", product_pretty_name)
-        return self._products_tiles[product_pretty_name]
+    def product_tiles(self, product: Product):
+        if product.name not in self._products_tiles:
+            self._products_tiles[product.name] = self.component_factory(
+                "product tile", product)
+        return self._products_tiles[product.name]
