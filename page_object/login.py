@@ -5,6 +5,11 @@ from page_object.base_page import BasePage
 
 class Login(BasePage):
 
+    """
+    Page object of the login page.
+    Didn't find necessary to split it in components.
+    """
+
     def __init__(self, driver):
         super().__init__(driver)
 
