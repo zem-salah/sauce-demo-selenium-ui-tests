@@ -17,6 +17,10 @@ class Login(BasePage):
     password_txt = (By.ID, "password")
     login_btn = (By.ID, "login-button")
 
+    @property
+    def path(self):
+        return '/'
+
     def login(self, username, password):
         self.base_component.enter_text(self.username_txt, username)
         self.base_component.enter_text(self.password_txt, password)

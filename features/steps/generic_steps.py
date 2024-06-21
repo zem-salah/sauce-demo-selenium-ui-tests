@@ -1,4 +1,4 @@
-from behave import then, when
+from behave import then
 from robber import expect
 
 from page_object.page_factory import PageFactory

@@ -14,6 +14,10 @@ class ProductsPage(LoggedInBasePage):
         self.footer = self.component_factory("footer")
         self._products_tiles = {}
 
+    @property
+    def path(self):
+        return '/inventory.html'
+
     def page_is_visible(self):
         product_tile = self.component_factory(
             "product tile", "Sauce Labs Backpack")

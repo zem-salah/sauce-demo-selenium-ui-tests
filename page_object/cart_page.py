@@ -14,6 +14,10 @@ class CartPage(LoggedInBasePage):
         super().__init__(driver)
         self._cart_items = {}
 
+    @property
+    def path(self):
+        return '/cart.html'
+
     def page_is_visible(self):
         pass
 
