@@ -1,7 +1,14 @@
-from behave import then
+from behave import then, when
 from robber import expect, BadExpectation
 
+from page_object.page_factory import PageFactory
 from utils.session_manager import Session
+
+
+@when('the user proceed to checkout')
+def step_impl(context):
+    context.page.checkout()
+    context.page = PageFactory(context.driver)("checkout information")
 
 
 @then('"{product_pretty_name}" product is in the cart')

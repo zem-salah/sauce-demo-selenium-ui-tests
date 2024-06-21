@@ -1,3 +1,5 @@
+from selenium.webdriver.common.by import By
+
 from data.products import Product
 from page_object.logged_in_base_page import LoggedInBasePage
 
@@ -9,6 +11,8 @@ class CartPage(LoggedInBasePage):
     This page is composed of cart items representing product added in cart
     by the user
     """
+
+    checkout_btn = (By.ID, "checkout")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -26,3 +30,6 @@ class CartPage(LoggedInBasePage):
             self._cart_items[product.name] = self.component_factory(
                 "cart item", product)
         return self._cart_items[product.name]
+
+    def checkout(self):
+        self.base_component.click(self.checkout_btn)
