@@ -1,4 +1,5 @@
 from page_object.base_page import BasePage
+from urllib.parse import urljoin
 
 
 class LoggedInBasePage(BasePage):
@@ -12,3 +13,6 @@ class LoggedInBasePage(BasePage):
         super().__init__(driver)
         self.primary_header = self.component_factory("primary header")
         self.secondary_header = self.component_factory("secondary header")
+
+    def navigate(self):
+        self.driver.get(urljoin(self.BASE_URL, self.path))

@@ -4,12 +4,7 @@ Feature: Add a product to cart as a standard user
   I need to be able to add it to cart
 
   Scenario: add a product to cart
-    # The best here is to bypass the login and access directly to the products
-    # page using the right cookies to bypass login UI. But this is an
-    # enhancement. Focus here is given to coverage. Let's start with login via
-    # UI then maybe add it later
-    Given sauce demo login form is visible
-    When "standard user" logs in
+    Given "standard user" is logged in and is on the "products" page
     Then he should be on "products" page
 
     When he adds "Sauce Labs Backpack" product to cart
