@@ -30,7 +30,7 @@ Here I present the modules present in the repo and their purpose :
 a whole page. For example, product page is composed of 2 headers, a main 
 content and a footer.
 
-`data`: contain classes that will be used to get test datas throught a 
+`data`: contain classes that will be used to get test datas through a 
 friendly API
 
 `features`: specific to behave framework. Contains .feature files with 

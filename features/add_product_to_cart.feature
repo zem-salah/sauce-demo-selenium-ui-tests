@@ -1,9 +1,9 @@
 Feature: Add a product to cart as a standard user
   In order to purchase a product
   As standard user
-  I need to be able to add it to cart
+  I need to be able to login, add the wanted product in cart and checkout
 
-  Scenario: add a product to cart
+  Scenario: Journey scenario of buying a product from sauce labs demo web site as a standard user
     Given "standard user" is logged in and is on the "products" page
     Then he should be on "products" page
 
@@ -14,3 +14,15 @@ Feature: Add a product to cart as a standard user
     When he goes to the cart to checkout
     Then he should be on "your cart" page
     And "Sauce Labs Backpack" product is in the cart
+
+    When the user proceed to checkout
+    Then he should be on "checkout information" page
+
+    When he fills
+      |First Name |Last Name |Postal Code |
+      |standard   |user       | 11111     |
+    And clicks on "continue"
+    Then he should be on "checkout overview" page
+
+    When the user clicks on "finish"
+    Then he should be on "checkout complete" page
