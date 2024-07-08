@@ -2,14 +2,14 @@ from behave import when, then
 from robber import expect, BadExpectation
 
 from data.products import Product
-from utils.session_manager import Session
+from utils.session_manager import SessionData
 
 
 @when('he adds "{product_pretty_name}" product to cart')
 def step_impl(context, product_pretty_name):
     product = Product(product_pretty_name)
     context.page.product_tiles(product).add_product_to_cart()
-    context.current_session.set(Session.CART, product)
+    context.current_user.session(SessionData.CART).set(product)
 
 
 @then('the add to cart button for product "{product_pretty_name}" '
