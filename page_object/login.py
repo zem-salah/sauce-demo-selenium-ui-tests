@@ -10,12 +10,12 @@ class Login(BasePage):
     Didn't find necessary to split it in components.
     """
 
+    username_txt = (By.ID, 'user-name')
+    password_txt = (By.ID, 'password')
+    login_btn = (By.ID, 'login-button')
+
     def __init__(self, driver):
         super().__init__(driver)
-
-    username_txt = (By.ID, "user-name")
-    password_txt = (By.ID, "password")
-    login_btn = (By.ID, "login-button")
 
     @property
     def path(self):
@@ -26,7 +26,7 @@ class Login(BasePage):
         self.base_component.enter_text(self.password_txt, password)
         self.base_component.click(self.login_btn)
         from page_object.page_factory import PageFactory
-        return PageFactory(self.driver)("products")
+        return PageFactory(self.driver)('products')
 
     def page_is_visible(self):
         return all((
