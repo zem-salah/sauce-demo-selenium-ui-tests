@@ -8,6 +8,12 @@ class BaseComponent:
         self._driver = driver
 
     def enter_text(self, locator, text):
+        """
+        Basic method to enter a text in a filed located by locator.
+        :param locator: used to find the element
+        :param text: text to enter the field
+        :return: None
+        """
         element = self.find_element(locator)
         element.clear()
         element.send_keys(text)

@@ -16,3 +16,6 @@ class BasePage:
         self.driver = driver
         self.component_factory = ComponentFactory(driver)
         self.base_component = BaseComponent(driver)
+
+    def get_field_locator_by_pretty_name(self, field_pretty_name):
+        return self.field_pretty_name_to_locator.get(field_pretty_name)

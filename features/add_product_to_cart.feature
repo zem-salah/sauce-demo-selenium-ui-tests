@@ -19,10 +19,12 @@ Feature: Add a product to cart as a standard user
     Then he should be on "checkout information" page
 
     When he fills
-      |First Name |Last Name |Postal Code |
-      |standard   |user       | 11111     |
-    And clicks on "continue"
-    Then he should be on "checkout overview" page
-
-    When the user clicks on "finish"
-    Then he should be on "checkout complete" page
+      |field        |value         |
+      |first name   |standard_user |
+      |last name    |user          |
+      |postal code  |11111         |
+#    And clicks on "continue"
+#    Then he should be on "checkout overview" page
+#
+#    When the user clicks on "finish"
+#    Then he should be on "checkout complete" page

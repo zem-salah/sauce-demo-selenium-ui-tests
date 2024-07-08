@@ -1,4 +1,4 @@
-from behave import then
+from behave import then, when
 from robber import expect
 
 from page_object.page_factory import PageFactory
@@ -13,3 +13,26 @@ def step_impl(context, page_pretty_name):
     expected_page = PageFactory(context.driver)(page_pretty_name)
     expect(isinstance(context.page, type(expected_page))).to.be.true()
     context.page.page_is_visible()
+
+
+@when("he fills")
+def step_impl(context):
+    """
+    Generic step to fill a form from a table composed of two columns
+    '|field|value|'
+
+    Each row in this table will be used to fill one field in the form.
+
+    'field' column, must contain pretty names of the fields to fill.
+    Exemple :
+        |field      |value        |
+        |user name  | new user    |
+        |address    | foo         |
+        |email      | bar@foo.com |
+        ...
+    """
+    for row in context.table:
+        context.page.base_component.enter_text(
+            context.page.get_field_locator_by_pretty_name(row['field']),
+            row['value']
+        )
