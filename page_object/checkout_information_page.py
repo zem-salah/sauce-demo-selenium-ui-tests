@@ -14,11 +14,13 @@ class CheckoutInformationPage(LoggedInBasePage):
     first_name_txt = (By.XPATH, '//*[@data-test="firstName"]')
     last_name_txt = (By.XPATH, '//*[@data-test="lastName"]')
     postal_code_txt = (By.XPATH, '//*[@data-test="postalCode"]')
+    continue_btn = (By.XPATH, '//*[@data-test="continue"]')
 
-    field_pretty_name_to_locator = {
+    page_elements_pretty_name_to_locator = {
         'first name': first_name_txt,
         'last name': last_name_txt,
         'postal code': postal_code_txt,
+        'continue': continue_btn,
     }
 
     def __init__(self, driver):

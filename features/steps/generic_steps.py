@@ -36,3 +36,14 @@ def step_impl(context):
             context.page.get_field_locator_by_pretty_name(row['field']),
             row['value']
         )
+
+
+@when('clicks on "{element_pretty_name}"')
+def step_impl(context, element_pretty_name):
+    """
+    Generic step to click on an element of the page identified by its pretty
+    name.
+    """
+    context.page.base_component.click(
+        context.page.get_field_locator_by_pretty_name(element_pretty_name)
+    )
