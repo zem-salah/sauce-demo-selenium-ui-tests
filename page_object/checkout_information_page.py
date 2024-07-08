@@ -11,6 +11,16 @@ class CheckoutInformationPage(LoggedInBasePage):
     https://www.saucedemo.com/checkout-step-one.html
     """
 
+    first_name_txt = (By.XPATH, '//*[@data-test="firstName"]')
+    last_name_txt = (By.XPATH, '//*[@data-test="lastName"]')
+    postal_code_txt = (By.XPATH, '//*[@data-test="postalCode"]')
+
+    field_pretty_name_to_locator = {
+        'first name': first_name_txt,
+        'last name': last_name_txt,
+        'postal code': postal_code_txt,
+    }
+
     def __init__(self, driver):
         super().__init__(driver)
 
