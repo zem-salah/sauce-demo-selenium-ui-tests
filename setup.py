@@ -9,6 +9,7 @@ setup(
     author_email='s_zemmouri@esi.dz',
     install_requires=[
         'behave == 1.2.6',
+        'robber == 1.1.5',
         'selenium == 4.6.0',
     ],
 )
