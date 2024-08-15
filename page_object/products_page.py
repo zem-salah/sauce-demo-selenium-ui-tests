@@ -11,8 +11,11 @@ class ProductsPage(LoggedInBasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.footer = self.component_factory("footer")
+        self.footer = self.component_factory('footer')
         self._products_tiles = {}
+        self.page_elements_pretty_name_to_locator = {
+            'cart': self.primary_header.shopping_cart_link,
+        }
 
     @property
     def path(self):
@@ -20,7 +23,7 @@ class ProductsPage(LoggedInBasePage):
 
     def page_is_visible(self):
         product_tile = self.component_factory(
-            "product tile", "Sauce Labs Backpack")
+            'product tile', 'Sauce Labs Backpack')
         return all((self.primary_header.is_visible(),
                     self.secondary_header.is_visible(),
                     product_tile.is_visible(),
@@ -30,5 +33,5 @@ class ProductsPage(LoggedInBasePage):
     def product_tiles(self, product: Product):
         if product.name not in self._products_tiles:
             self._products_tiles[product.name] = self.component_factory(
-                "product tile", product)
+                'product tile', product)
         return self._products_tiles[product.name]

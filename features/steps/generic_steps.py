@@ -39,7 +39,7 @@ def step_impl(context):
 
 
 @when('clicks on "{element_pretty_name}"')
-def step_impl(context, element_pretty_name):
+def click(context, element_pretty_name):
     """
     Generic step to click on an element of the page identified by its pretty
     name.
@@ -47,3 +47,13 @@ def step_impl(context, element_pretty_name):
     context.page.base_component.click(
         context.page.get_field_locator_by_pretty_name(element_pretty_name)
     )
+
+
+@when('clicks on "{element_pretty_name}" to navigate to "{page_pretty_name}" page')
+def click_and_navigate_to_page(context, element_pretty_name, page_pretty_name):
+    """
+    Generic step to click on an element of the page identified by its pretty
+    name. The click take the user to another page.
+    """
+    click(context, element_pretty_name)
+    context.page = PageFactory(context.driver)(page_pretty_name)

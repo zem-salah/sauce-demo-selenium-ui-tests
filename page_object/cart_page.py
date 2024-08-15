@@ -12,7 +12,11 @@ class CartPage(LoggedInBasePage):
     by the user
     """
 
-    checkout_btn = (By.ID, "checkout")
+    checkout_btn = (By.ID, 'checkout')
+
+    page_elements_pretty_name_to_locator = {
+        'checkout': checkout_btn,
+    }
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -28,8 +32,5 @@ class CartPage(LoggedInBasePage):
     def cart_item(self, product: Product):
         if product.name not in self._cart_items:
             self._cart_items[product.name] = self.component_factory(
-                "cart item", product)
+                'cart item', product)
         return self._cart_items[product.name]
-
-    def checkout(self):
-        self.base_component.click(self.checkout_btn)
