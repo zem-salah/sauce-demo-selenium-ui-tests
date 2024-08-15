@@ -1,3 +1,5 @@
+from urllib.parse import urljoin
+
 from components.base_component import BaseComponent
 from components.component_factory import ComponentFactory
 
@@ -16,6 +18,14 @@ class BasePage:
         self.driver = driver
         self.component_factory = ComponentFactory(driver)
         self.base_component = BaseComponent(driver)
+
+    def navigate(self, cookie_name=None, cookie_value=None):
+        if cookie_name and cookie_value:
+            self.driver.add_cookie({
+                'name': cookie_name,
+                'value': cookie_value,
+            })
+        self.driver.get(urljoin(self.BASE_URL, self.path))
 
     def get_field_locator_by_pretty_name(self, field_pretty_name):
         return self.page_elements_pretty_name_to_locator.get(field_pretty_name)
