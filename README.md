@@ -1,26 +1,29 @@
 # Sauce lab UI automation demo
 
-The goal of this repo is to act as a portfolio showing UI automation skills.
+The goal of this repo is to act as a portfolio showing UI automation skills using selenium.
 
 The idea is to have a framework that is readable and maintainable using patterns like POM (page object model), factory and composition.
 
+## Prerequisites
+
+- Python 3.8
+- a virtual env manager
+
 ## Installation
 
-You need python 3.8, behave 1.2.6 and selenium 4.6.0. To install them easily :
+1. Clone the repository
+2. Create and activate a virtual env
+3. Install required packages
 
-1. cd into the root directory where setup.py is located.
-2. Enter :
+```bash
+    pip install .
+```
 
+## Run tests
 
-    $ python setup.py install
-
-
-## Execute tests present in feature files
-
-In repo root folder, do :
-
+```bash
     behave
-
+```
 
 ## Repo organisation
 
