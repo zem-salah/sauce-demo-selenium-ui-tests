@@ -23,8 +23,10 @@ Feature: Add a product to cart as a standard user
       |first name   |standard_user |
       |last name    |user          |
       |postal code  |11111         |
-    And clicks on "continue"
-#    Then he should be on "checkout overview" page
-#
+    # not overriding it with a more user friendly step to show that we can use
+    # more basic steps in scenario if want/need to
+    And clicks on "continue" to navigate to "checkout overview" page
+    Then he should be on "checkout overview" page
+
 #    When the user clicks on "finish"
 #    Then he should be on "checkout complete" page
