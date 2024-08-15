@@ -28,5 +28,5 @@ Feature: Add a product to cart as a standard user
     And clicks on "continue" to navigate to "checkout overview" page
     Then he should be on "checkout overview" page
 
-#    When the user clicks on "finish"
-#    Then he should be on "checkout complete" page
+    When the user clicks on "finish"
+    Then he should be on "checkout complete" page

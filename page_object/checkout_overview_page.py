@@ -10,6 +10,11 @@ class CheckoutOverviewPage(LoggedInBasePage):
     page object for checkout first step.
     https://www.saucedemo.com/checkout-step-two.html
     """
+    finish_btn = (By.ID, 'finish')
+
+    page_elements_pretty_name_to_locator = {
+        'finish': finish_btn,
+    }
 
     def __init__(self, driver):
         super().__init__(driver)

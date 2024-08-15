@@ -38,7 +38,7 @@ def step_impl(context):
         )
 
 
-@when('clicks on "{element_pretty_name}"')
+@when('the user clicks on "{element_pretty_name}"')
 def click(context, element_pretty_name):
     """
     Generic step to click on an element of the page identified by its pretty
